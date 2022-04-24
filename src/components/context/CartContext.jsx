@@ -23,11 +23,11 @@ function CartContextProvider({children}) {
     }
     const eliminar = ()=>{
         setcartList([])
+        setTotal(0)
     }
     // funcion para calcular el total
     const calcularTotal = (precio)=>{
         setTotal(precio)
-
     }
     return (
 
