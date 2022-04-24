@@ -19,7 +19,7 @@ function Cart() {
     }
   
     
-  },[])
+  },[cartList])
   
   function borrar(){
     eliminar()
