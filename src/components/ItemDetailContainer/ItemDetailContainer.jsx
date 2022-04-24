@@ -47,6 +47,7 @@ function ItemDetailContainer() {
                         caracteristicas={productos[detalleId].caracteristicas}
                         img={productos[detalleId].imagen}
                         marca={productos[detalleId].marca}
+                        id={detalleId}
                     />
                 </div>
 
