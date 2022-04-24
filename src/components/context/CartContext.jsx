@@ -21,6 +21,9 @@ function CartContextProvider({children}) {
         cartList[i].cantidad=cartList[i].cantidad*veces
         cartList[i].valor = cartList[i].valor+valor2
     }
+    const eliminar = ()=>{
+        setcartList([])
+    }
     // funcion para calcular el total
     const calcularTotal = (precio)=>{
         setTotal(precio)
@@ -33,6 +36,7 @@ function CartContextProvider({children}) {
             addToCart,
             reemplazarValor,
             total,
+            eliminar,
             cartList
         }}>  
             {children}

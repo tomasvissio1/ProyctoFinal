@@ -21,6 +21,10 @@ function NavBar() {
             </div>
             </div>
         </div>
+        <div style={{"marginRight":"2%"}}>
+        <Link to={'/cart'}><button>carrito</button></Link>
+            
+        </div>
         </nav>
     </div>
   )
