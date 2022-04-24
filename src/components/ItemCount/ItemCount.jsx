@@ -5,7 +5,7 @@ import { CartContext } from "../context/CartContext";
 
 function ItemCount({marca,precio,id}) {
     const [valor,SetValor] = useState(1)
-    const {addToCart,total,cartList,reemplazarValor} = useContext(CartContext)
+    const {addToCart,total,cartList,reemplazarValor,calcularTotal} = useContext(CartContext)
     const [cantidad,SetCantidad]=useState()
     const [activador,setActivador] = useState(false)
 
@@ -19,6 +19,7 @@ function ItemCount({marca,precio,id}) {
             SetValor(valor-1)
         }
     }
+    
     function agregar(){
         
             for (let i = 0; i < cartList.length; i++) {
@@ -29,6 +30,7 @@ function ItemCount({marca,precio,id}) {
                     cantidad2=cantidad2+(precio*valor)
                     veces=veces+valor
                     reemplazarValor(veces,i,valor2)
+                    calcularTotal(total+(precio*valor))
                     activador=true
                     break
                 }
@@ -36,9 +38,8 @@ function ItemCount({marca,precio,id}) {
             if(activador==false){
                 let cantidad = precio*valor
                 addToCart({marca,cantidad,id,valor})
+                calcularTotal(total+(precio*valor))
             }
-        
-        
     }
 
 

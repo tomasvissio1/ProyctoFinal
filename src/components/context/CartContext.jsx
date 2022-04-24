@@ -37,6 +37,7 @@ function CartContextProvider({children}) {
             reemplazarValor,
             total,
             eliminar,
+            calcularTotal,
             cartList
         }}>  
             {children}
