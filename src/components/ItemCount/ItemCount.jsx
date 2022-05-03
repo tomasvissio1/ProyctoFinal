@@ -7,7 +7,7 @@ function ItemCount({marca,precio,id}) {
     const [valor,SetValor] = useState(1)
     const {addToCart,total,cartList,reemplazarValor,calcularTotal} = useContext(CartContext)
     const [cantidad,SetCantidad]=useState()
-    const [activador,setActivador] = useState(false)
+    let [activador,setActivador] = useState(false)
     const [activarBotones,SetActivarBotones] = useState(true)
 
     function sumar(){
@@ -19,6 +19,10 @@ function ItemCount({marca,precio,id}) {
         if (valor>=2) {
             SetValor(valor-1)
         }
+    }
+    function resetearVariable(){
+        SetActivarBotones(false)
+        setActivador(true)
     }
     
     function agregar(){
@@ -42,7 +46,11 @@ function ItemCount({marca,precio,id}) {
                 calcularTotal(total+(precio*valor))
             }
             SetActivarBotones(false)
+            
     }
+    console.log(activador+"activador");
+
+    
 
 
   return (
@@ -53,7 +61,7 @@ function ItemCount({marca,precio,id}) {
             <button className='btn btn-outline-secondary' onClick={sumar} disabled={valor ==10 ? true : null}>+</button>
         </div>
         <div className='d-grid gap-2'>
-            {
+        {
                 activarBotones ? (
                     
                     <button className='alert alert-primary' onClick={agregar}>Agregar al carro</button>
@@ -62,7 +70,7 @@ function ItemCount({marca,precio,id}) {
                 (<div style={{"display":"flex","justifyContent":"space-evenly"}}>
                     <div>
                         <Link to={`/`}>
-                            <button className='alert alert-primary'>Seguir Comprando</button>
+                            <button className='alert alert-primary' onClick={resetearVariable}>Seguir Comprando</button>
                         </Link>
                     </div>
                     <div>
@@ -79,3 +87,31 @@ function ItemCount({marca,precio,id}) {
 }
 
 export default ItemCount
+
+
+{/* {
+                activarBotones ? (
+                    
+                    <button className='alert alert-primary' onClick={agregar}>Agregar al carro</button>
+                )
+                :
+                (<div style={{"display":"flex","justifyContent":"space-evenly"}}>
+                    <div>
+                        <Link to={`/`}>
+                            <button className='alert alert-primary' onClick={resetearVariable}>Seguir Comprando</button>
+                        </Link>
+                    </div>
+                    <div>
+                        <Link to={`/cart`}>
+                             <button className='alert alert-primary'>Ir al carro</button>
+                        </Link>
+                    </div>
+                    
+                </div>)
+            } */}
+
+
+
+            {/* <Link to={'/cart'}>
+                <button onClick={agregar} className="alert alert-primary">Agregar al carrito</button>
+            </Link> */}

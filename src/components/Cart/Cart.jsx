@@ -56,7 +56,7 @@ function Cart() {
   }
 
   return (
-    <div>
+    <div style={{"textAlign":"center","marginTop":"3%"}}>
       <div>
         {
           vacio ? 
@@ -68,8 +68,8 @@ function Cart() {
             </div>
             <div>
               <h3>Total a pagar: {total}</h3>
-              <button onClick={borrar}>Vaciar carrito</button>
-              <button onClick={generarOrden}>Confirmar compra</button>
+              <button onClick={borrar} className='btn btn-outline-secondary'>Vaciar carrito</button>
+              <button onClick={generarOrden} className='btn btn-outline-secondary'>Confirmar compra</button>
             </div>
           </div>
           )
@@ -89,7 +89,6 @@ function Cart() {
             <h5>Nombre: {lista.comprador.nombre}</h5>
             <h6>Email: {lista.comprador.email}</h6>
             <h6>Telefono: {lista.comprador.telefono}</h6>
-            <h6>Se pagó: {total}</h6>
           </div>
           )
           :
