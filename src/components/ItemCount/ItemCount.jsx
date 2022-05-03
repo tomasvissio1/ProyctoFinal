@@ -8,6 +8,7 @@ function ItemCount({marca,precio,id}) {
     const {addToCart,total,cartList,reemplazarValor,calcularTotal} = useContext(CartContext)
     const [cantidad,SetCantidad]=useState()
     const [activador,setActivador] = useState(false)
+    const [activarBotones,SetActivarBotones] = useState(true)
 
     function sumar(){
         if (valor<=10) {
@@ -40,6 +41,7 @@ function ItemCount({marca,precio,id}) {
                 addToCart({marca,cantidad,id,valor})
                 calcularTotal(total+(precio*valor))
             }
+            SetActivarBotones(false)
     }
 
 
@@ -51,9 +53,26 @@ function ItemCount({marca,precio,id}) {
             <button className='btn btn-outline-secondary' onClick={sumar} disabled={valor ==10 ? true : null}>+</button>
         </div>
         <div className='d-grid gap-2'>
-            <Link to={`/cart`}>
-                <button className='alert alert-primary' onClick={agregar}>Agregar al carro</button>
-            </Link>
+            {
+                activarBotones ? (
+                    
+                    <button className='alert alert-primary' onClick={agregar}>Agregar al carro</button>
+                )
+                :
+                (<div style={{"display":"flex","justifyContent":"space-evenly"}}>
+                    <div>
+                        <Link to={`/`}>
+                            <button className='alert alert-primary'>Seguir Comprando</button>
+                        </Link>
+                    </div>
+                    <div>
+                        <Link to={`/cart`}>
+                             <button className='alert alert-primary'>Ir al carro</button>
+                        </Link>
+                    </div>
+                    
+                </div>)
+            }
         </div>
     </div>
   )
