@@ -67,9 +67,18 @@ function Cart() {
               }
             </div>
             <div>
-              <h3>Total a pagar: {total}</h3>
-              <button onClick={borrar} className='btn btn-outline-secondary'>Vaciar carrito</button>
-              <button onClick={generarOrden} className='btn btn-outline-secondary'>Confirmar compra</button>
+              <h3>Total a pagar: ${total}</h3>
+              <div style={{"textAlign":'center','display':'flex','justifyContent':'center'}}>
+                <div style={{'marginRight':'1%'}}>
+                    <button onClick={borrar} className='btn btn-outline-secondary'>Vaciar carrito</button>
+                </div>
+                <div style={{'marginLeft':'1%'}}>
+                    <button onClick={generarOrden} className='btn btn-outline-secondary'>Confirmar compra</button>
+                </div>
+                
+                
+              </div>
+              
             </div>
           </div>
           )

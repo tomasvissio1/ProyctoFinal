@@ -6,7 +6,7 @@ import ItemList from '../ItemContainer/ItemList'
 import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer'
 import NavBar from '../NavBar/NavBar'
 
-function ContainerComponents() {
+function RoutesApp() {
   return (
      <BrowserRouter>
      <CartContextProvider>
@@ -31,7 +31,7 @@ function ContainerComponents() {
   )
 }
 
-export default ContainerComponents
+export default RoutesApp
 
 
 

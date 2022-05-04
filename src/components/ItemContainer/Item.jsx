@@ -11,15 +11,17 @@ function Item({marca,img,precio,id}) {
         <Card.Img variant="top" src={img} style={{"width":"40%","margin":"auto","marginTop":"3%"}}/>
         <Card.Body>
           <Card.Title style={{"textAlign":"center"}}>{marca}</Card.Title>
-          <Card.Text style={{"textAlign":"center"}}>{precio} </Card.Text>
+          <Card.Text style={{"textAlign":"center"}}>${precio} </Card.Text>
           <NavLink to={`/detalle/${id}`} style={{"textDecoration":"none!important"}}>
-            <Button className="btn btn-primary" id='btnDetalles' variant="primary">detalles</Button>
+            <Button className="btn btn-primary" id='btnDetalles' variant="primary">Ver Más</Button>
           </NavLink> 
         </Card.Body>
       </Card>
     </div>
   )
 }
+
+
 
 {/* <div className="card" style={{"width": "18rem"}}>
         <img src={img} style={{"width":"40%","margin":"auto","marginTop":"3%"}}className="card-img-top" alt="..."/>
