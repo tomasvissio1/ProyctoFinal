@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { CartContext } from '../context/CartContext'
 import { addDoc, collection, getDoc, getDocs, getFirestore, query, where } from 'firebase/firestore'
 
@@ -94,11 +94,19 @@ function Cart() {
         {
           mostrarListadoListo ?
           (
-          <div>
-            <h5>Nombre: {lista.comprador.nombre}</h5>
-            <h6>Email: {lista.comprador.email}</h6>
-            <h6>Telefono: {lista.comprador.telefono}</h6>
-          </div>
+            <div>
+                  <div>
+                  <h5>Nombre: {lista.comprador.nombre}</h5>
+                  <h6>Email: {lista.comprador.email}</h6>
+                  <h6>Telefono: {lista.comprador.telefono}</h6>
+                </div>
+                <div>
+                  <Link to={'/'}>
+                    <button className="btn btn-primary">Volver al menu</button>
+                  </Link>
+                </div>
+            </div>
+          
           )
           :
           (<></>)
