@@ -44,11 +44,7 @@ function Cart() {
       SetVacio(false)
     }else{
       SetVacio(true)
-      console.log(cartList)
-      
     }
-  
-    
   },[cartList])
   
   function borrar(){
@@ -75,8 +71,6 @@ function Cart() {
                 <div style={{'marginLeft':'1%'}}>
                     <button onClick={generarOrden} className='btn btn-outline-secondary'>Confirmar compra</button>
                 </div>
-                
-                
               </div>
               
             </div>
